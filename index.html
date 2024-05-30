@@ -182,6 +182,12 @@
                     fill-rule="evenodd"
                     d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1z"/>
             </symbol>
+            <symbol id="wink" viewBox="0 0 16 16">
+                <path
+                    fill-rule="evenodd"
+                     d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.5 3.5 0 0 0 8 11.5a3.5 3.5 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m1.757-.437a.5.5 0 0 1 .68.194.93.93 0 0 0 .813.493c.339 0 .645-.19.813-.493a.5.5 0 1 1 .874.486A1.93 1.93 0 0 1 10.25 7.75c-.73 0-1.356-.412-1.687-1.007a.5.5 0 0 1 .194-.68"/>
+            </symbol>
         </svg>
 
         <header class="bg-light fixed-top">
@@ -225,10 +231,9 @@
                             <div class="col-12 col-sm-6 col-lg-12 py-3">
                                 <h2 class="text-center fs-5"><svg width="24" height="24">
                 <use href="#box"/>
-                </svg>
+                </svg>BOX OFFICE</h2>
 
-                                BOX OFFICE</h2>
-                                <div class="ct-chart2 ct-minor-second"></div>
+                    <div class="ct-chart2 ct-minor-second"></div>
                             </div>
                         </div>
                     </div>
@@ -238,6 +243,15 @@
                 <use href="#comparacion"/>
                 </svg>COMPARACIÓN PROMEDIOS</h2>
                         <div class="ct-chart3 ct-major-twelfth"></div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="col-12">
+                        <h2 class="text-center">
+                            <svg width="24" height="24">
+                                <use href="#wink">
+                            </svg>
+                       PELÍCULAS DE ACCIÓN: PRESUPUESTO E INGRESO DE TAQUILLAS</h2>
+                        <div class="ct-chart5 ct-major-twelfth"></div>
                     </div>
                 </div>
             </div>
@@ -307,33 +321,26 @@
             );
         </script>
         <script>
-            new Chartist.Line ( ".ct-chart5",
+            new Chartist.Bar(
+                ".ct-chart5",
                 {
-  labels: ['Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6'],
-  series: [
-    [5, 4, 3, 7, 5, 10],
-    [3, 2, 9, 5, 4, 6],
-    [2, 1, -3, -4, -2, 0]
-  ]
-};{
-  // Don't draw the line chart points
-  showPoint: false,
-  // Disable line smoothing
-  lineSmooth: false,
-  // X-Axis specific configuration
-  axisX: {
-    // We can disable the grid for this axis
-    showGrid: false,
-    // and also don't show the label
-    showLabel: false
-  },
-  // Y-Axis specific configuration
-  axisY: {
-    // Lets offset the chart a bit from the labels
-    offset: 60, labelInterpolationFnc: function(value) {
-      return '$' + value + 'm';}}};
-                )
-
+                    labels: ["Avengers: Age of Ultron", "Star Wars: Episode VII - The Force Awakens", "Avatar", "Pirates of the Caribbean: Dead Man's Chest", "Jurassic World", "Independence Day"],
+                    series: [
+                        [365, 258, 237, 225, 150, 75],
+                        [1403.5, 2068, 2790, 1066, 1670, 817],
+                    ],
+                },
+                {
+                    axisX: {
+                        // On the x-axis start means top and end means bottom
+                        position: "start",
+                    },
+                    axisY: {
+                        // On the y-axis start means left and end means right
+                        position: "end",
+                    },
+                }
+            );
         </script>
         <script>
          /*
